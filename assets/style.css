@@ -111,6 +111,7 @@ body{background-color: #222222;}
     background: url(img/wave2.png) repeat-x;
     animation: wave 50s linear infinite;
     z-index: 10;
+    opacity: 0.8;
 }
 .wave2{
     /* animation-delay: 1s; */
