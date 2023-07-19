@@ -37,6 +37,7 @@ body{background-color: #222222;}
 .nav-wrapper{
     background-color: transparent;
     position: fixed;
+    z-index: 1000;
 }
 .navbar{
     background-color: transparent!important;
@@ -60,10 +61,14 @@ body{background-color: #222222;}
 .hero-container{
     background:linear-gradient(to right, #00031d, #000536);
     overflow: hidden;
+    position: relative;
+    z-index: 9;
 }
 .hero-text-wrapper{
     flex-direction: column;
     justify-content: center;
+    z-index: 9;
+
 }
 .hero-header{
     font-size: 45px;
@@ -80,6 +85,8 @@ body{background-color: #222222;}
 }
 .hero-img{
     width: 100%;
+    z-index: 9;
+
 }
 .hero-btn-wrapper{
     gap:16px;
@@ -94,6 +101,96 @@ body{background-color: #222222;}
     border-radius: 5px;
 }
 
+.wave1, .wave2, .wave3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 590vw;
+    transition: 1s;
+    background: url(img/wave2.png) repeat-x;
+    animation: wave 50s linear infinite;
+    z-index: 10;
+}
+.wave2{
+    /* animation-delay: 1s; */
+    animation: wave 60s linear infinite;
+    opacity: 0.5;
+    z-index: 11;
+    bottom: -10px;
+}
+.wave3{
+    /* animation-delay: 1s; */
+    animation: wave 70s linear infinite;
+    opacity: 0.2;
+    z-index: 12;
+    bottom: 10px;
+}
+
+.star1, .star2, .star3{
+    height: 590vh;
+    width: 100vw;
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    z-index: 5;
+    background: url(img/star.png) repeat-y;
+    background-size: 100%;
+    
+}
+.star1{
+    animation: wave2 50s linear infinite;
+    z-index: 5;
+    opacity: 0.7;
+}
+.star2{
+    background: url(img/star.png) repeat;
+    background-size: 70%;
+    animation: wave2 45s linear infinite;
+    z-index: 3;
+    transition: 1s;
+    filter: blur(1px);
+    opacity: 0.5;
+}
+.star3{
+    background: url(img/star.png) repeat;
+    background-size: 50%;
+    animation: wave2 30s linear infinite;
+    z-index: 3;
+    transition: 1s;
+    filter: blur(4px);
+    opacity: 0.3;
+}
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: calc(590vw - 50px);
+        /* background-position-y: -10%; */
+    }
+}
+
+@keyframes wave2 {
+    0% {
+        background-position-y: 0px;
+    }
+    100% {
+        background-position-y: -2000px;
+    }
+}
+
+/* .wave2 {
+    translate: -5%;
+    opacity: 0.7;
+    z-index:12;
+}
+.wave3 {
+    translate: -10%;
+    opacity: 0.5;
+    z-index: 13;
+} */
+
 @media screen and (max-width:991px) {
     .hero-img{
         width: 75%;
@@ -107,7 +204,7 @@ body{background-color: #222222;}
         margin-bottom: 32px;
     }
     .hero{
-        translate: 0 32%;
+        translate: 0 25%;
     }
 }
 @media screen and (max-width:900px) {
@@ -146,5 +243,10 @@ body{background-color: #222222;}
 @media screen and (max-width:400px) {
     .hero-btn-wrapper{
         width: 100%;
+    }
+}
+@media screen and (max-width:992px) {
+    .wave1, .wave2, .wave3{
+        display: none;
     }
 }
